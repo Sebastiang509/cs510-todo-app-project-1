@@ -3,9 +3,10 @@ module EmailService
 open System.Net.Mail
 
 let sendEmail (subject: string) (body: string) =
-    let smtpClient = new SmtpClient("smtp.gmail.com", 587)
-    smtpClient.Credentials <- new System.Net.NetworkCredential("your-email@gmail.com", "your-password")
-    smtpClient.EnableSsl <- true
+    let formattedBody = sprintf "Subject: %s\n\n%s" subject body
+    ...
+    message.Body <- formattedBody
+
 
     let message = new MailMessage()
     message.From <- MailAddress("your-email@gmail.com")
