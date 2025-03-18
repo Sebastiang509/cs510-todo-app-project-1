@@ -23,6 +23,7 @@ jobs:
           dotnet --version
           echo "Checking .NET Info..."
           dotnet --info
+
 - name: Restore dependencies
   run: |
     if [ -d "backend" ]; then
