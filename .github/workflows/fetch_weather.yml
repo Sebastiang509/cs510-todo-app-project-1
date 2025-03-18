@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
- fetch-weather:
+  fetch-weather:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -15,22 +15,14 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '7.0'  # Ensure the correct .NET version is installed
+          dotnet-version: '7.0'
 
       - name: Verify .NET installation
-        run: dotnet --info  # Debugging step to check if .NET is installed
-
-     - name: Debug .NET Installation
-       run: |
-          echo "Checking .NET SDK Version..."
+        run: |
+          echo "Checking .NET Version..."
           dotnet --version
-          echo "Checking .NET Installation Details..."
+          echo "Checking .NET Info..."
           dotnet --info
-          echo "Checking Current Directory..."
-          pwd
-          echo "Checking Available Files..."
-          ls -al
-
 
       - name: Restore dependencies
         run: |
