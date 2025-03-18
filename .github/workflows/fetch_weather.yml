@@ -35,4 +35,3 @@ jobs:
           git add weather_data.json
           git commit -m "Auto-updated weather data for Andover, KS"
           git push
-
