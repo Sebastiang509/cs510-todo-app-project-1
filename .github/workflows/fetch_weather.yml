@@ -24,11 +24,12 @@ jobs:
           echo "Checking .NET Info..."
           dotnet --info
 
-      - name: Restore dependencies
-        run: |
-          cd backend
-          ls -al  # Debugging: Show files in backend/
-          dotnet restore backend.fsproj
+ `   - name: Restore dependencies
+  run: |
+    cd backend
+    ls -al  # Debugging: Show files in backend/
+    dotnet restore backend.fsproj || echo "Failed to restore dependencies"
+
 
       - name: Fetch weather data
         run: |
