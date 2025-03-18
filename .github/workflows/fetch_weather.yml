@@ -15,14 +15,17 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: '7.0.x'  # Ensure you use the correct .NET version
 
-    - name: Restore dependencies
-  run: dotnet restore backend/backend.fsproj
-
+      - name: Restore dependencies
+        run: |
+          cd backend
+          dotnet restore backend.fsproj
 
       - name: Fetch weather data
-        run: dotnet fsi backend/weather_service.fsx
+        run: |
+          cd backend
+          dotnet run --project backend.fsproj
 
       - name: Commit and push changes
         run: |
