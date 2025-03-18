@@ -35,6 +35,7 @@ jobs:
       exit 1
     fi
 
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions"
