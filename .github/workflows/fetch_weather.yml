@@ -15,12 +15,11 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '7.0.x'  # Ensure you use the correct .NET version
+          dotnet-version: '7.0'
 
       - name: Restore dependencies
         run: |
           cd backend
-          ls -al  # Debugging: Show files in backend/
           dotnet restore backend.fsproj
 
       - name: Fetch weather data
@@ -35,3 +34,4 @@ jobs:
           git add weather_data.json
           git commit -m "Auto-updated weather data for Andover, KS"
           git push
+
