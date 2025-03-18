@@ -15,7 +15,10 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '7.0'
+          dotnet-version: '7.0'  # Ensure the correct .NET version is installed
+
+      - name: Verify .NET installation
+        run: dotnet --info  # Debugging step to check if .NET is installed
 
       - name: Restore dependencies
         run: |
