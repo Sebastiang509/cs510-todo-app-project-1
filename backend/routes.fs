@@ -8,9 +8,10 @@ let getWeatherHandler =
         let weatherJson = getWeatherData ()
         json weatherJson next ctx
 
-let webApp =
+let apiRoutes =
     choose [
-        GET >=> choose [
-            route "/weather" >=> getWeatherHandler
-        ]
+        route "/todos" >=> getTodosHandler
+        route "/weather" >=> getWeatherHandler
     ]
+
+let webApp = GET >=> apiRoutes
