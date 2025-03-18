@@ -17,14 +17,13 @@ let fetchWeatherData () =
         try
             let! response = client.GetStringAsync(apiUrl) |> Async.AwaitTask
             let weatherData = JObject.Parse(response)
-
-            // Save weather data to file
             File.WriteAllText(weatherFilePath, weatherData.ToString(Newtonsoft.Json.Formatting.Indented), Encoding.UTF8)
-
             printfn "Weather data updated successfully!"
         with
-        | ex -> printfn "Failed to fetch weather data: %s" ex.Message
+        | :? HttpRequestException as ex -> printfn "Network error: %s" ex.Message
+        | :? Exception as ex -> printfn "Unknown error: %s" ex.Message
     }
+
 
 // Function to read saved weather data
 let getWeatherData () =
