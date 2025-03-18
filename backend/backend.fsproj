@@ -5,6 +5,14 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
+      - name: Restore dependencies
+        run: |
+          cd backend
+          echo "Checking files in backend/"
+          ls -al  # Debugging: Show files in backend/
+          dotnet restore backend.fsproj || echo "Failed to restore dependencies"
+
+
   <ItemGroup>
     <PackageReference Include="Giraffe" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
