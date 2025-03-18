@@ -23,18 +23,16 @@ jobs:
           dotnet --version
           echo "Checking .NET Info..."
           dotnet --info
-
- `   - name: Restore dependencies
+- name: Restore dependencies
   run: |
-    cd backend
-    ls -al  # Debugging: Show files in backend/
-    dotnet restore backend.fsproj || echo "Failed to restore dependencies"
-
-
-      - name: Fetch weather data
-        run: |
-          cd backend
-          dotnet run --project backend.fsproj
+    if [ -d "backend" ]; then
+      cd backend
+      ls -al  # Debugging: Show files in backend/
+      dotnet restore backend.fsproj
+    else
+      echo "Error: backend directory not found!"
+      exit 1
+    fi
 
       - name: Commit and push changes
         run: |
