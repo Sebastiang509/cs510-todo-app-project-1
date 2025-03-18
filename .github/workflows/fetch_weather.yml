@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
-  fetch-weather:
+ fetch-weather:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
