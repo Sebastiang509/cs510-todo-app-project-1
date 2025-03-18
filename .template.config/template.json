@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Your Name",
+  "classifications": ["Web", "F#", "Giraffe"],
+  "identity": "CS510.TodoApp.Template",
+  "name": "CS 510 Todo App",
+  "shortName": "cs510todo",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "sourceName": "TodoAppTemplate",
+  "preferNameDirectory": true
+}
