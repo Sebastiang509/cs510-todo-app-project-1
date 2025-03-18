@@ -12,9 +12,10 @@ let configureServices (services: IServiceCollection) =
 
 [<EntryPoint>]
 let main _ =
+    printfn "Starting CS510 Todo App..."
     let builder = WebApplication.CreateBuilder()
     builder.Services |> configureServices |> ignore
     let app = builder.Build()
+    printfn "Server running at http://localhost:5000"
     app |> configureApp
     app.Run()
-    0
