@@ -3,11 +3,6 @@ name: Fetch Weather Data
 on:
   schedule:
     - cron: "0 6 * * *"  # Runs daily at 6 AM UTC
-name: Fetch Weather Data
-
-on:
-  schedule:
-    - cron: "0 6 * * *"  # Runs daily at 6 AM UTC
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
@@ -51,5 +46,3 @@ jobs:
           fi
           git commit -m "Auto-updated weather data for Andover, KS"
           git push
-
-
